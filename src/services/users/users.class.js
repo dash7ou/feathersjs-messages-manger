@@ -25,13 +25,15 @@ exports.Users = class Users extends Service {
     }
   }
   remove(id, params) {
-    if (id === data.userId) {
-      return super.remove(id);
+    const { user_id } = params;
+
+    if (+id === user_id) {
+      return super.remove(id, params);
     } else {
       throw new Error("you are not the owner");
     }
   }
-  get(id) {
+  get(id, params) {
     return super.get(id);
   }
 };

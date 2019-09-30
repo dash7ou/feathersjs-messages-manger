@@ -7,6 +7,8 @@ const {
 
 const getAuthBeforeUpdateDeleteUser = require('../../hooks/get-auth-before-update-delete-user');
 
+const afterDeleteUser = require('../../hooks/after-delete-user');
+
 module.exports = {
   before: {
     all: [],
@@ -37,7 +39,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [afterDeleteUser()]
   },
 
   error: {
